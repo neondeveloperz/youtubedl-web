@@ -13,12 +13,6 @@ ffmpeg.setFfmpegPath(ffmpegPath);
 const port = process.env.PORT || 3000;
 
 
-
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Database Connected!");
-});
-
 app.use(bodyParser.urlencoded({ extended: true }));
 app.set("view engine", "ejs");
 
