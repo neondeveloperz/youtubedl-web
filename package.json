@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "body-parser": "^1.20.0",
+    "dotenv": "^16.0.1",
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.16",
+    "progress": "^2.0.3",
+    "pug": "^3.0.2",
+    "readline": "^1.3.0",
+    "ytdl-core": "^4.11.0"
+  },
+  "name": "ytdlv4",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "watch": "nodemon ./main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

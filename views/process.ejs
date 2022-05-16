@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Youtube Downloader | NEON-SUTDIO</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.neon-studio.tk/project/font_awesome_5_pro/css/all.min.css">
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Kanit&display=swap');
+            * {
+                font-family: 'Kanit', sans-serif;
+            } 
+            nav {
+                background-color: #212121;
+            }
+        </style>
+    </head>
+	<body>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container">
+                <a class="navbar-brand" href="#">Youtube Downloader</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/"><i class="fas fa-home fa-fw"></i> Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/history"><i class="fas fa-history fa-fw"></i> History</a>
+                        </li>
+                    </ul>
+                    <a class="btn btn-warning btn-sm disabled ms-2" disabled><i class="fas fa-lock fa-fw"></i> Client (Soon)</a>
+
+                </div>
+            </div>
+          </nav>
+		<div class="container my-5">
+			<h1 class="text-center"><strong>Youtube Downloader</strong></h1>
+            <small class="d-flex justify-content-center text-center">Version 4.0 | Source By <a class="text-warning ms-1" href="#">Armzi</a></small>
+            <div class="d-flex justify-content-center mt-3">
+                <div style="width: 50%;">
+                    <div class="card card-body">
+                        <iframe class="d-flex"  height="360" src="<%= embed %>">
+                        </iframe>
+                    </div>
+                    <div class="card card-body mt-3">
+                        <form action="/dl" method="post">
+                            <div class="mb-3">
+                                <label class="form-label">Format</label>
+                                <select class="form-select" name="format" id="format" onchange="update_data()">
+                                    <option selected disabled>-- Select --</option>
+                                    <option value="mp3">🔊 MP3</option>
+                                    <option value="mp4" disabled>📽 MP4 (Soon)</option>
+                                </select>
+                            </div>
+                            <script>
+                                var mp3_list = "<option selected disabled>-- Select --</option><option value='128'>128 Kbps</option><option value='192'>192 Kbps</option><option value='320'>320 Kbps</option>";
+                                var mp4_list = "<option selected disabled>-- Select --</option><option value='2'>New Option 1</option><option value='3'>New Option 2</option>";
+                                var default_list =  "<option selected disabled>-- Select --</option>";
+
+                                
+                                function update_data(){
+                                    var value = $('#format').children("option:selected").val();
+                                    if(value == 'mp3')
+                                    {
+                                        $("#quality").html(mp3_list);  
+                                    }else if(value == 'mp4')
+                                    {
+                                        $("#quality").html(mp4_list);  
+                                    }else{
+                                        $("#quality").html(default_list);  
+                                    }
+                                     
+                                }
+                            </script>
+                            <div class="mb-3">
+                                <label class="form-label">Quality</label>
+                                <select class="form-select" name="quality" id="quality">
+                                    <option selected disabled>-- Select --</option>
+                                </select>
+                            </div>
+                            <input type="hidden" name="video_id" value="<%= video_id %>">
+                            <button type="submit" class="btn btn-warning">Download</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+		</div>
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    </body>
+</html>
